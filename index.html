@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chatbot</title>
+<style>
+  body {
+    background-color: #d6d4d3;
+  }
+
+  textarea { 
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;
+    outline: none;
+    font-family: "Arial";
+  }
+
+  #chatbox {
+    border-style: groove;
+    border-width: 1px;
+    position: fixed;
+    bottom: 0;
+    right: 3em;
+    width: 250px;
+  }
+
+  #chatheader {
+    cursor: pointer;
+    height: 40px;
+    background-color: #ffc430;
+  }
+
+  #chat {
+    height: 250px;
+    background-color: white;
+    overflow: auto;
+  }
+
+  #send_message {
+    background-color: white;
+    box-shadow: 1px 1px 10px grey;
+    height: 37px;
+  }
+
+  #message {
+    width: 100%;
+    padding: 0;
+    margin-left: 2px;
+    margin-top: 2px;
+  }
+
+  #send {
+    height: 100%;
+    margin: 2px;
+    outline: none;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+  }
+
+  .toggler {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .conversation {
+    border-radius: 15px;
+    margin: 5px;
+    padding: 5px;
+    max-width: 60%;
+    clear: both;
+  }
+
+  .bot {
+    background-color: #f1f0f0;
+    color: black;
+    float: left;
+  }
+
+  .human {
+    background-color: #2284ff;
+    color: white;
+    float: right;
+  }
+
+  .text {
+    font-family: "Arial";
+    font-weight: 100;
+    margin: 0px 5px;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"></script>
+</head>
+<body>
+  <div id="chatbox">
+      <div id="chatheader" class="center">
+          <img src="chatbot_avatar.png" class="avatar" alt="Avatar">
+          <img src="toggle.png" id="toggler" class="toggler" alt="toggler">
+      </div>
+      <div id=toggle>
+      <div id="chat">
+      
+      </div>
+      <div id="send_message" class="center">
+          <textarea id="message" placeholder="Type a message..."></textarea>
+          <input type="image" src="send.png" id="send" alt="submit">
+      </div>
+      </div>
+  </div>
+
+<script>
+console.log("running js");
+document.getElementById('chatheader').addEventListener("click", function(){
+    let toggle = document.getElementById('toggle');
+    if(toggle.style.display == "none"){
+        toggle.style.display = "block";
+    } else {
+        toggle.style.display = "none";
+    }
+});
+
+function createElementFromHTML(htmlString) {
+  var div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
+  return div.firstChild;
+}
+
+function send_response(text){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "http://localhost:5000/?m="+text, false);
+    xmlhttp.send();
+    if (xmlhttp.status === 200) {
+        result = xmlhttp.responseText;
+        create_chat_item(result, "bot");
+    }
+}
+
+function create_chat_item(text, cls){
+    let html_template = `
+        <div class="conversation `+ cls +`">
+            <p class="text">`+ text +`</p>
+        </div>
+    `;
+    let chat_message = createElementFromHTML(html_template);
+    let chat = document.getElementById('chat');
+    chat.appendChild(chat_message);
+    if(cls == "human"){
+        send_response(text);
+    }
+    chat.scrollTop = chat.scrollHeight;
+}
+
+document.getElementById('send').addEventListener("click", function(){
+    let message_box = document.getElementById('message');
+    if(message_box.value){
+        create_chat_item(message_box.value, "human");
+        message_box.value = ""
+    }
+});
+
+</script>
+</body>
+</html>
