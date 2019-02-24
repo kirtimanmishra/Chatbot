@@ -12,7 +12,7 @@ let chatbot_code = `
       </div>
       <div id="send_message" class="center">
           <textarea id="message" placeholder="Type a message..."></textarea>
-          <input type="image" src="${chatbot_url}/assets/send.png" id="send" alt="submit">
+          <input type="image" src="https://cdn.jsdelivr.net/gh/sathwikmatsa/Chatbot@master/assets/send.png" id="send" alt="submit">
       </div>
       </div>
   </div>`;
@@ -50,9 +50,8 @@ function create_chat_item(text, cls){
 
 
 (function(){
-    document.
     document.body.appendChild(createElementFromHTML(chatbot_code));
-    document.head.appendChild(createElementFromHTML('<link rel="stylesheet" href="${chatbot_url}/chatbot_styles.css">'));
+    document.head.appendChild(createElementFromHTML('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sathwikmatsa/Chatbot@master/chatbot_styles.css">'));
     document.getElementById('chatheader').addEventListener("click", function(){
         let toggle = document.getElementById('toggle');
         if(toggle.style.display == "none"){
