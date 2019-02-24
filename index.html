@@ -24,6 +24,7 @@
 
 <script>
 console.log("running js");
+let UID = "None";
 document.getElementById('chatheader_iittp').addEventListener("click", function(){
     let toggle = document.getElementById('toggle_iittp');
     if(toggle.style.display == "none"){
@@ -39,9 +40,20 @@ function createElementFromHTML(htmlString) {
   return div.firstChild;
 }
 
+function initiate_chat(){
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "http://localhost:5000/?getid=true", false);
+    xmlhttp.send();
+    if (xmlhttp.status === 200) {
+        result = xmlhttp.responseText;
+        UID = result;
+        create_chat_item("Do you need any help?", "bot-iittp");
+    }
+}
+
 function send_response(text){
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "http://localhost:5000/?m="+text, false);
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "http://localhost:5000/?id="+UID+"&m="+text, false);
     xmlhttp.send();
     if (xmlhttp.status === 200) {
         result = xmlhttp.responseText;
@@ -71,7 +83,7 @@ document.getElementById('send_iittp').addEventListener("click", function(){
         message_box.value = ""
     }
 });
-
+initiate_chat();
 </script>
 </body>
 </html>

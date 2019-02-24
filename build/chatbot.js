@@ -1,5 +1,6 @@
 let chatbot_url = "https://cdn.jsdelivr.net/gh/sathwikmatsa/Chatbot@master";
 let SERVER_URL = "http://localhost:5000";
+let UID = "None";
 let chatbot_code = `
     <div id="chatbox_iittp">
       <div id="chatheader_iittp" class="center-iittp">
@@ -25,7 +26,7 @@ function createElementFromHTML(htmlString) {
 
 function send_response(text){
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", SERVER_URL+"/?m="+text, false);
+    xmlhttp.open("GET", SERVER_URL+"/?id="+UID+"&m="+text, false);
     xmlhttp.send();
     if (xmlhttp.status === 200) {
         result = xmlhttp.responseText;
@@ -48,6 +49,16 @@ function create_chat_item(text, cls){
     chat.scrollTop = chat.scrollHeight;
 }
 
+function initiate_chat(){
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "http://localhost:5000/?getid=true", false);
+    xmlhttp.send();
+    if (xmlhttp.status === 200) {
+        result = xmlhttp.responseText;
+        UID = result;
+        create_chat_item("Do you need any help?", "bot-iittp");
+    }
+}
 
 (function(){
     document.body.appendChild(createElementFromHTML(chatbot_code));
@@ -67,4 +78,5 @@ function create_chat_item(text, cls){
             message_box.value = ""
         }
     });
+    initiate_chat();
 })();
