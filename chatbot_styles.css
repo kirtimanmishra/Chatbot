@@ -1,12 +1,4 @@
-  textarea { 
-    border-style: none; 
-    border-color: Transparent; 
-    overflow: auto;
-    outline: none;
-    font-family: "Arial";
-  }
-
-  #chatbox {
+  #chatbox_iittp {
     border-style: groove;
     border-width: 1px;
     position: fixed;
@@ -15,57 +7,62 @@
     width: 250px;
   }
 
-  #chatheader {
+  #chatheader_iittp {
     cursor: pointer;
     height: 40px;
     background-color: #ffc430;
   }
 
-  #chat {
+  #chat_iittp {
     height: 250px;
     background-color: white;
     overflow: auto;
   }
 
-  #send_message {
+  #send_message_iittp {
     background-color: white;
     box-shadow: 1px 1px 10px grey;
     height: 37px;
   }
 
-  #message {
+  #message_iittp {
     width: 100%;
     padding: 0;
     margin-left: 2px;
     margin-top: 2px;
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;
+    outline: none;
+    font-family: "Arial";
   }
 
-  #send {
+  #send_iittp {
     height: 100%;
     margin: 2px;
     outline: none;
   }
 
-  .avatar {
+  .avatar-iittp {
     border-radius: 50%;
     width: 30px;
     height: 30px;
     margin-left: 5px;
   }
 
-  .toggler {
+  .toggler-iittp {
     border-radius: 50%;
     width: 30px;
     height: 30px;
   }
 
-  .center {
+  .center-iittp {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   
-  .conversation {
+  .conversation-iittp {
     border-radius: 15px;
     margin: 5px;
     padding: 5px;
@@ -73,19 +70,19 @@
     clear: both;
   }
 
-  .bot {
+  .bot-iittp {
     background-color: #f1f0f0;
     color: black;
     float: left;
   }
 
-  .human {
+  .human-iittp {
     background-color: #2284ff;
     color: white;
     float: right;
   }
 
-  .text {
+  .text-iittp {
     font-family: "Arial";
     font-weight: 100;
     margin: 0px 5px;
