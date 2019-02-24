@@ -1,4 +1,4 @@
-let chatbot_url = "https://cdn.jsdelivr.net/gh/sathwikmatsa/Chatbot@master";
+let chatbot_url = "https://sathwikmatsa.github.io/Chatbot";
 let SERVER_URL = "http://localhost:5000";
 let UID = "None";
 let chatbot_code = `
@@ -50,6 +50,7 @@ function create_chat_item(text, cls){
 }
 
 function initiate_chat(){
+    console.log("initiating chat");
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "http://localhost:5000/?getid=true", false);
     xmlhttp.send();
