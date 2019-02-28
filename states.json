@@ -1,0 +1,34 @@
+{
+	"init":{
+		"state": 0,
+		"prompt": "Hello, I'm a bot for GCU. How are you today?",
+		"type": "P/N",
+		"P": "I think that you are doing fine",
+		"N": "Guess I think that you need help."
+	},
+    "assistance": {
+        "state": 1,
+        "prompt": "Do you need counselling?",
+        "type": "Y/N/M",
+        "Y": "continue",
+        "N": "Thank you! Have a good day :)",
+        "M": "Looks like you need counselling,continue"
+    },
+    "counsellor": {
+        "state": 2,
+        "prompt": "Choose any of the following counsellors: {data}",
+        "type": "select&set",
+        "data": "https://sathwikmatsa.github.io/Chatbot/data/counsellors.csv"
+    },
+    "appointment": {
+        "state": 3,
+        "prompt":"Select Date and Time",
+        "type": "calendar&set",
+        "data": "https://sathwikmatsa.github.io/Chatbot/data/days.csv"
+    },
+    "rollno": {
+        "state": 4,
+        "prompt": "Please provide your roll number:",
+        "type": "validate&set"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "intents":[
+        {
+            "tag":"yes",
+            "patterns":["I need it","I agree","I agree","I agree","I agree","I agree","I agree","I agree","I agree","I agree","I'm sure","I'm sure","I'm sure","I'm sure","I'm sure","aye aye","carry on","do it","do it","do it","get on with it then","go ahead","i agree","make it happen","make it so","most assuredly","perfect, thanks","please do","rock on","that's correct","that's right","uh huh","yeah, do it"," do it"," please","you got it","I need it","I need counselling","absolutely","absolutely","absolutely","affirmative","alright","assuredly","aye","certainly","confirmed","continue","continue","correct","da","good","hooray","ja","ok","ok","ok","okay","proceed","righto","sure","sure","sure","sure","sure","sure","sure","sure","sure","thanks","totally","true","y","ya","ya","yay","yea","yeah","yeah","yep","yeppers","yes","yes"]
+        },
+        {
+            "tag":"no",
+            "patterns":["Need not", "No I dont need counselling", "No I do not need counselling","No I don't need it.","No I dont need it","I dont need it","I changed my mind","I don't agree","I don't agree","I don't agree","I don't agree","I don't agree","absolutely not","belay that","cut it out","don't do anything","don't do it","forget it","never mind","no thanks","no way","on second thought, don't do it","please don't","scratch that","cancel","denied","disengage","don't","end","exit","halt","n","nah","nay","nay","neg","negative","negatory","nein","nevermind","nevermind","no","no","no","nope","nope","nyet","quit","skip","stop","stop"]
+        },
+        {
+            "tag":"maybe",
+            "patterns":["I don't have a clue","I don't have a clue","I don't know","I don't know","I have no clue","I have no idea","I may agree","I might agree","I think so","I think so","I'm not sure if I agree","I'm not sure if I agree","I'm not sure if I agree","I'm not sure if I agree","I'm not sure if I agree","I'm not sure","no idea","not sure","not sure","dunno","maybe","maybe","meh","perhaps","possibly","unsure","wait"]
+        }
+    ]
+}

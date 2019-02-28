@@ -41,7 +41,10 @@ function createElementFromHTML(htmlString) {
 
 function send_response(text){
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "http://localhost:5000/?m="+text, false);
+    let user = document.cookie;
+    user = user.split("=")[1];
+    
+    xmlhttp.open("GET", "http://10.21.45.71:5000/?user="+user+"?m="+text, false);
     xmlhttp.send();
     if (xmlhttp.status === 200) {
         result = xmlhttp.responseText;
