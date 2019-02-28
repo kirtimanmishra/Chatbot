@@ -1,7 +1,7 @@
 {
 	"init":{
 		"state": 0,
-		"prompt": "Hello, I'm a bot for GCU. How are you today?",
+		"prompt": "Hello, I'm a bot for GCU.\n How are you today?",
 		"type": "P/N",
 		"P": "I think that you are doing fine",
 		"N": "Guess I think that you need help."
@@ -18,7 +18,19 @@
         "state": 2,
         "prompt": "Choose any of the following counsellors: {data}",
         "type": "select&set",
-        "data": "https://sathwikmatsa.github.io/Chatbot/data/counsellors.csv"
+        "data": "https://sathwikmatsa.github.io/Chatbot/data/counsellors.csv",
+        "counsellors":{
+            "1":{
+                "name":"Karthik",
+                "day":"Thursday",
+                "time":"3:00-5:00"
+            },
+            "2":{
+                "name":"Sami Ullah",
+                "day":"Friday",
+                "time":"3:00-5:00"
+            }
+        }
     },
     "appointment": {
         "state": 3,

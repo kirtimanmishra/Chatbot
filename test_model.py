@@ -65,8 +65,12 @@ model.load('./model.tflearn')
 with open('states.json') as json_data:
 	state_schema = json.load(json_data)
 
-happy = None
+# state variables
+happy       = None
 counselling = None
+counsellor  = None
+date_time   = None
+student     = None
 
 states = list(state_schema)
 state = state_schema[states[0]]["state"]
@@ -83,19 +87,34 @@ for i in states:
 		else:
 			print(state["N"])
 			happy = False
-	elif(state["state"]==1):
-		print(state_schema[i]["prompt"])
+	elif(state["state"] == 1):
+		print(state["prompt"])
 		temp = input()
 		yorn = classify(temp)[0][0]
 		if(yorn == "yes"):
+			counselling = True
 			print("Ok! booking appointment")
 		elif(yorn == "maybe"):
+			counselling = True
 			print(state["M"])
 		else:
+			counselling = False
 			print(state["N"])
 			break
 	elif(state["state"] == 2):
-		print("qdqwd")
+		print(state["prompt"])
+		for i in state["counsellors"]:
+			counsellor = state["counsellors"][i]
+			print(counsellor["name"], counsellor["day"], counsellor["time"])
+		counsellor = input()
+	elif(state["state"] == 3):
+		print(state["prompt"])
+		date_time = input()
+	elif(state["state"] == 4):
+		print(state["prompt"])
+		student = input()
+
+
 
 
 # while(True):
