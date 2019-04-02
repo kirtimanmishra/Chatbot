@@ -1,46 +1,30 @@
 {
-	"init":{
-		"state": 0,
-		"prompt": "Hello, I'm a bot for GCU.\n How are you today?",
-		"type": "P/N",
-		"P": "I think that you are doing fine",
-		"N": "Guess I think that you need help."
-	},
-    "assistance": {
-        "state": 1,
-        "prompt": "Do you need counselling?",
-        "type": "Y/N/M",
-        "Y": "continue",
-        "N": "Thank you! Have a good day :)",
-        "M": "Looks like you need counselling,continue"
+	"var1":{
+        "type":"bool",
+        "val":["Y", "N"],
+        "priority":1,
+        "count":0
     },
-    "counsellor": {
-        "state": 2,
-        "prompt": "Choose any of the following counsellors: {data}",
-        "type": "select&set",
-        "data": "https://sathwikmatsa.github.io/Chatbot/data/counsellors.csv",
-        "counsellors":{
-            "1":{
-                "name":"Karthik",
-                "day":"Thursday",
-                "time":"3:00-5:00"
-            },
-            "2":{
-                "name":"Sami Ullah",
-                "day":"Friday",
-                "time":"3:00-5:00"
-            }
-        }
+    "var2":{
+        "type":"range",
+        "val":[1,2,3,4,5,6,7,8,9,10],
+        "priority":2,
+        "count":0
     },
-    "appointment": {
-        "state": 3,
-        "prompt":"Select Date and Time",
-        "type": "calendar&set",
-        "data": "https://sathwikmatsa.github.io/Chatbot/data/days.csv"
+    "var3":{
+        "type":"string",
+        "val":"string",
+        "priority":3
     },
-    "rollno": {
-        "state": 4,
-        "prompt": "Please provide your roll number:",
-        "type": "validate&set"
+    "var4":{
+        "type":"number",
+        "val":1,
+        "priority":4
+    },
+    "var5":{
+        "type":"str_list",
+        "val":["string1","string2","string3"],
+        "priority":5,
+        "count":0
     }
 }
