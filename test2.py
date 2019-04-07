@@ -32,10 +32,8 @@ for i in variables:
 
 lis = list(itertools.product(*lis))
 for j in range(len(lis)):
-	print("Dialog {}".format(j))
 	for i in range(len(variables)):
 		print(variables[i]["name"]+"?")
 		print(lis[j][i])
-	print("##########\n")
 
 # fwrite.close()

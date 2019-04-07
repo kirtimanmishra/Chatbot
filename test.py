@@ -76,3 +76,5 @@ model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True)
 model.save('model.tflearn')
 
 pickle.dump( {'words':words, 'classes':classes, 'train_x':train_x, 'train_y':train_y}, open( "training_data", "wb" ) )
+
+
